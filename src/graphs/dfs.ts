@@ -1,13 +1,10 @@
-const graph = {
-  A: ["C", "B"],
-  B: ["D"],
-  C: ["E"],
-  D: ["F"],
-  E: [],
-  F: [],
-};
+import { AdjacencyList } from "../types";
 
-export const dfsIterative = (graph, src, fn = console.log) => {
+export const dfsIterative = (
+  graph: AdjacencyList,
+  src: string,
+  fn: (n: string) => void
+) => {
   const stack = [src];
 
   while (stack.length > 0) {
@@ -19,7 +16,11 @@ export const dfsIterative = (graph, src, fn = console.log) => {
   }
 };
 
-export const dfsRecursive = (graph, src, fn = console.log) => {
+export const dfsRecursive = (
+  graph: AdjacencyList,
+  src: string,
+  fn: (n: string) => void
+) => {
   fn(src);
 
   graph[src].forEach((child) => {
